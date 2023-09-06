@@ -1,13 +1,16 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import * as Icons from "@fortawesome/free-solid-svg-icons";
 import { useRef, useState } from "react";
 import Categories from "./components/Categories/Categories";
 import SingleIcon from "./components/SingleIcon/SingleIcon";
 
-
 function App() {
-
+  // Icons Object To Array Convert
   let iconsArray = Object.entries(Icons);
+
+  // Search Input Reference For Searches
+  const ref = useRef();
+
+  // Add New Property add in element
   let transformedArrayIcons = iconsArray.map((icon) => {
     if (icon[0].length < 5) {
       icon["status"] = "free";
@@ -21,10 +24,12 @@ function App() {
     }
   });
 
+  // Initializing New Added Property Array into useState
   const [transformedIcons, setTransformedIcons] = useState(
     transformedArrayIcons
   );
 
+  // Free, Paid & Others Icon Filtering Handler
   const handleFreeIcon = () => {
     const freeIcon = transformedArrayIcons.filter(
       (icon) => icon.status === "free"
@@ -44,7 +49,7 @@ function App() {
     setTransformedIcons(othersIcon);
   };
 
-
+  // Accending & Decending Functions
   function compare(a, b) {
     if (a[1].iconName < b[1].iconName) {
       return 1;
@@ -65,52 +70,46 @@ function App() {
     return 0;
   }
 
-  const handleDcendant = () => {
-    const decendantIcon = transformedIcons.slice().sort(compare);
-    setTransformedIcons(decendantIcon);
-  };
-
+  // Accending & Decending Sort Handler
   const handleAccending = () => {
     const accendingIcon = transformedIcons.slice().sort(compare2);
     setTransformedIcons(accendingIcon);
   };
 
-  const ref = useRef();
+  const handleDcendant = () => {
+    const decendantIcon = transformedIcons.slice().sort(compare);
+    setTransformedIcons(decendantIcon);
+  };
+
+  // Search Icon Handler
   const handleSearchIcon = () => {
     const searchValue = ref.current.value;
-      const searchIcons = transformedArrayIcons.filter((icon) => icon[1]?.iconName?.includes(searchValue) === true);
-      setTransformedIcons(searchIcons);
+    const searchIcons = transformedArrayIcons.filter(
+      (icon) => icon[1]?.iconName?.includes(searchValue) === true
+    );
+    setTransformedIcons(searchIcons);
   };
 
   return (
     <>
-
-      <h1>Welcome To Font Awesome <br/> Replica Site</h1>
+      <h1>
+        Welcome To Font Awesome <br /> Replica Site
+      </h1>
 
       <div>
         <input ref={ref} type="text" placeholder="search-icon" />
         <button onClick={handleSearchIcon}>Search</button>
       </div>
-      
+
       <Categories
         handleAccending={handleAccending}
         handleDcendant={handleDcendant}
-
         handleFreeIcon={handleFreeIcon}
         handlePaidIcon={handlePaidIcon}
         handleOthersIcon={handleOthersIcon}
       ></Categories>
 
-      
-      
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(4, 1fr)",
-          gap: "40px",
-          justifyContent: "space-between",
-        }}
-      >
+      <div>
         {transformedIcons.map((singleIcon) => {
           return (
             <SingleIcon key={singleIcon[0]} icon={singleIcon}></SingleIcon>

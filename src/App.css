@@ -1,37 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@400;600;700&family=Inter:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Roboto:wght@300;400;700&display=swap');
 
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+body{
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.replica__title{
+  font-weight: 700;
+  font-size: 45px;
+  text-align: center;
+  margin: 20px 0;
+  color: salmon;
 }
 
-.card {
-  padding: 2em;
+.replica__search-container{
+  width: 80vh;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.read-the-docs {
-  color: #888;
+.replica__search-input{
+  width: 80%;
+  border: 1px solid salmon;
+  padding: 10px;
+  border-radius: 5px;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.replica__search-btn{
+  width: 18%;
+  padding: 10px;
+  background-color: salmon;
+  border: 1px solid transparent;
+  outline: none;
+  border-radius: 5px;
+  color: white;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.replica__search-input:focus{
+  background-color: salmon;
+  border-color: transparent;
+  color: white;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.replica__search-input:focus + .replica__search-btn{
+  background-color: transparent;
+  border-color: salmon;
+  color: salmon;
+}
+
+.replica__icons-container{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 50px;
 }

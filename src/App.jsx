@@ -2,6 +2,7 @@ import * as Icons from "@fortawesome/free-solid-svg-icons";
 import { useRef, useState } from "react";
 import Categories from "./components/Categories/Categories";
 import SingleIcon from "./components/SingleIcon/SingleIcon";
+import './app.css'
 
 function App() {
   // Icons Object To Array Convert
@@ -92,13 +93,13 @@ function App() {
 
   return (
     <>
-      <h1>
-        Welcome To Font Awesome <br /> Replica Site
+      <h1 className="replica__title">
+        Welcome To Font Awesome Replica
       </h1>
 
-      <div>
-        <input ref={ref} type="text" placeholder="search-icon" />
-        <button onClick={handleSearchIcon}>Search</button>
+      <div className="replica__search-container">
+        <input className="replica__search-input" ref={ref} type="text" placeholder="search-icon" />
+        <button onClick={handleSearchIcon} className="replica__search-btn">Search</button>
       </div>
 
       <Categories
@@ -109,7 +110,7 @@ function App() {
         handleOthersIcon={handleOthersIcon}
       ></Categories>
 
-      <div>
+      <div className="replica__icons-container">
         {transformedIcons.map((singleIcon) => {
           return (
             <SingleIcon key={singleIcon[0]} icon={singleIcon}></SingleIcon>

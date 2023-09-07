@@ -2,7 +2,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./Modal.css";
 const Modal = ({ closeModal, icon }) => {
-  console.log(icon);
+  const status = icon.status;
   return (
     <div className="modal">
       <div className="icon__modal-item">

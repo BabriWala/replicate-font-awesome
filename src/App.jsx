@@ -4,6 +4,7 @@ import Categories from "./components/Categories/Categories";
 import SingleIcon from "./components/SingleIcon/SingleIcon";
 import "./app.css";
 import Modal from "./components/Modal/Modal";
+import NotFound from "./components/NotFound/NotFound";
 
 function App() {
   // Icons Object To Array Convert
@@ -141,6 +142,8 @@ function App() {
 
       {loading ? (
         <h2>Loading......</h2>
+      ) : transformedIcons.length === 0 ? (
+        <NotFound></NotFound>
       ) : (
         <div className="replica__icons-container">
           {transformedIcons.map((singleIcon) => {
@@ -155,6 +158,8 @@ function App() {
         </div>
       )}
 
+
+      {/* Modal */}
       {modalOpen && (
         <div className="modal__background">
           <Modal closeModal={closeModal} icon={modalIcon}></Modal>

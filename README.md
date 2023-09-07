@@ -41,7 +41,7 @@ Feel free to explore the code and modify it to meet your specific requirements.
 
 ## Demo
 
-You can view a live demo of this FontAwesome Icon Page replica [here](#insert_link_to_demo_if_available).
+You can view a live demo of this FontAwesome Icon Page replica [here](https://replicate-font-awesome.netlify.app/).
 
 If you have any questions or need further assistance, please don't hesitate to contact us.
 

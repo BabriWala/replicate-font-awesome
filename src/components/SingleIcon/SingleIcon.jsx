@@ -2,7 +2,7 @@
 import './SingleIcon.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const SingleIcon = ({ icon }) => {
+const SingleIcon = ({ icon, handleModal }) => {
   const status = icon.status;
   return (
     <div className="icon__item">
@@ -11,7 +11,7 @@ const SingleIcon = ({ icon }) => {
       </button>
       <p className="icon__name">Font - {(icon[1]?.iconName)?.toUpperCase()}</p>
       <p className={status == "free" ? "free" : status == 'paid' ? "paid" : "others"}>{icon.status}</p>
-      <button className="icon__show-details">Details</button>
+      <button className="icon__show-details" onClick={() => handleModal(icon)}>Details</button>
     </div>
   );
 };

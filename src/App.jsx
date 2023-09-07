@@ -3,17 +3,19 @@ import { useRef, useState } from "react";
 import Categories from "./components/Categories/Categories";
 import SingleIcon from "./components/SingleIcon/SingleIcon";
 import "./app.css";
+import Modal from "./components/Modal/Modal";
 
 function App() {
   // Icons Object To Array Convert
-  let iconsArray = Object.entries(Icons);
-  let [loading, setLoading] = useState(false);
-
+  const iconsArray = Object.entries(Icons);
+  const [loading, setLoading] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [modalIcon, setModalIcon] = useState([]);
   // Search Input Reference For Searches
   const ref = useRef();
 
   // Add New Property add in element
-  let transformedArrayIcons = iconsArray.map((icon) => {
+  const transformedArrayIcons = iconsArray.map((icon) => {
     if (icon[0].length < 5) {
       icon["status"] = "free";
       return icon;
@@ -104,6 +106,15 @@ function App() {
     setLoading(false);
   };
 
+  // handle Modal
+  const handleModal = (icon) => {
+    // console.log(icon)
+    setModalOpen(true);
+    setModalIcon(icon);
+  };
+
+  const closeModal = () => [setModalOpen(false)];
+
   return (
     <>
       <h1 className="replica__title">Welcome To Font Awesome Replica</h1>
@@ -134,9 +145,19 @@ function App() {
         <div className="replica__icons-container">
           {transformedIcons.map((singleIcon) => {
             return (
-              <SingleIcon key={singleIcon[0]} icon={singleIcon}></SingleIcon>
+              <SingleIcon
+                handleModal={handleModal}
+                key={singleIcon[0]}
+                icon={singleIcon}
+              ></SingleIcon>
             );
           })}
+        </div>
+      )}
+
+      {modalOpen && (
+        <div className="modal__background">
+          <Modal closeModal={closeModal} icon={modalIcon}></Modal>
         </div>
       )}
     </>

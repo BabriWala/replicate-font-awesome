@@ -5,6 +5,7 @@
     justify-content: space-between;
     max-width: 1120px;
     margin: 100px auto;
+    margin-bottom: 0;
 }
 .header__topSearch-container{
     display: flex;

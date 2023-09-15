@@ -1,34 +1,55 @@
-.categories__container{
-    padding: 50px;
+.categories{
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+}
+.categories__container{
+    margin-bottom: 25px;
 }
 .categories__title{
-    font-size: 18px;
-    font-weight: 600 !important;
-    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 600;
     margin-bottom: 10px;
+    color: rgb(97, 109, 138);
+    font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
 }
-.categories__buttons button{
-    margin-right: 5px;
-    padding: 10px;
-    background-color: salmon;
+.categories__icon-container{
+    display: flex;
+    justify-content: space-between;
+    padding: 7px 10px;
+    align-items: center;
     border: 1px solid transparent;
-    border-radius: 5px;
-    font-family: 'Plus Jakarta';
-    color: #fff;
-    font-weight: 700;
-    font-size: 15px;
-    letter-spacing: 1px;
-    outline: none;
+    margin-bottom: 5px;
     cursor: pointer;
-    transition: alll 0.3s ease-in-out;
+    border-radius: 5px;
+}
+.categories__icon-container:hover{
+    border-color: rgb(24, 49, 83);
+}
+.categories__icon-left{
+    display: flex;
+}
+.categories__icon{
+    font-size: 14px;
+    color: rgb(24, 49, 83);
+    margin-right: 5px;
+    font-weight: 4000;
+}
+.categories__icon-title{
+    font-size: 14px;
+    color: rgb(24, 49, 83);
+    font-weight: 400;
+}
+.categories__icon-amount{
+    color: rgb(97, 109, 138);
+    font-size: 14px;
+    font-weight: 400;
+}
+.selected{
+    background-color: #146EBE;
+    color: #fff;
 }
 
-.categories__buttons button:hover{
-    background-color: transparent;
-    border-color: salmon;
-    color: salmon;
+.selected h3,
+.selected h2{
+    color: #fff;
 }
-

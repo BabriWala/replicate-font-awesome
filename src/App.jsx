@@ -6,6 +6,7 @@ import "./app.css";
 import Modal from "./components/Modal/Modal";
 import NotFound from "./components/NotFound/NotFound";
 import Header from "./Header/Header";
+import MainIcon from "./components/MainIcon/MainIcon";
 
 function App() {
 
@@ -141,7 +142,7 @@ function App() {
       {/* Header Component */}
       <Header toggleDropdown={toggleDropdown} selectedItem={selectedItem} isOpen={isOpen} handleItemClick={handleItemClick} items={items}></Header>
 
-
+      <MainIcon></MainIcon>
 
 
       {/* <h1 className="replica__title">Welcome To Font Awesome Replica</h1>

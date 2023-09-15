@@ -186,11 +186,11 @@ function App() {
 
 
       {/* Modal */}
-      {modalOpen && (
+      {/* {modalOpen && (
         <div className="modal__background">
           <Modal closeModal={closeModal} icon={modalIcon}></Modal>
         </div>
-      )} */}
+      )} */} 
     </>
   );
 }

@@ -31,7 +31,6 @@
     font-size: 14px;
     font-weight: 400;
 }
-.header__topSearch-item{}
 
 
 /* Header Filters */
@@ -56,6 +55,9 @@
     border-radius: 5px;
     padding: 5px 7px;
     border: 2px solid rgb(195, 198, 209);
+    position: absolute;
+    z-index: 5555;
+    width: 170px;
 }
 .header__dropdown-list li{
     list-style: none;

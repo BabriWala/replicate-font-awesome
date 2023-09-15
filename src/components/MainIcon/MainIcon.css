@@ -1,7 +1,12 @@
+.main__icons-area{
+    background-color: #F0F1F3;
+}
 .main__container{
     max-width: 1120px;
     margin: auto;
-    margin-bottom: 50px;
+    padding-bottom: 50px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+    padding-top: 50px;
+    gap: 32px;
 }

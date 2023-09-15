@@ -49,12 +49,14 @@ const Header = ({
         {/* Header DropDown Filter */}
         <div className="header__dropdown">
           <div className="header__dropdown-header" onClick={toggleDropdown}>
-            {selectedItem || "Select an option"}
+            <h5 className="header__dropdown-title">{selectedItem || "Featured"}</h5>
+            <h5 className="header__dropdown-title">
             {isOpen ? (
               <FontAwesomeIcon icon={faChevronUp} />
             ) : (
               <FontAwesomeIcon icon={faChevronDown} />
             )}
+            </h5>
           </div>
           {isOpen && (
             <ul className="header__dropdown-list">

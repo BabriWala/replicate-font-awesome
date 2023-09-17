@@ -72,3 +72,13 @@
     background-color: rgba(195, 198, 209, 0.685);
 
 }
+
+.selected{
+    color: #146EBE;
+    border-bottom: 5px solid #146EBE;
+    background-color: #fff;
+}
+
+.selected .header__topSearch-title{
+    color: #146EBE;
+}

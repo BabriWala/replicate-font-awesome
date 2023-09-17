@@ -2,12 +2,12 @@ import Categories from "../Categories/Categories";
 import Icons from "../Icons/Icons";
 import './MainIcon.css';
 
-const MainIcon = () => {
+const MainIcon = ({transformedIcons, handleSelected, filteredValue}) => {
     return (
         <div className="main__icons-area">
             <div className="main__container">
-                <Categories></Categories>  
-                <Icons></Icons>
+                <Categories handleSelected={handleSelected} filteredValue={filteredValue}></Categories>  
+                <Icons transformedIcons={transformedIcons}></Icons>
             </div>         
         </div>
     );

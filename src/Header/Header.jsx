@@ -14,31 +14,33 @@ const Header = ({
   selectedItem,
   isOpen,
   handleItemClick,
-  items,
+  handleSelected,
+  filteredValue,
+  items
 }) => {
   return (
     <>
       <div className="header">
         <div className="header__topSearch-container">
-          <div className="header__topSearch-item">
+          <div className={`header__topSearch-item ${filteredValue.classic ? "selected" : ""}`} onClick={() => handleSelected("classic")}>
             <h1 className="header__icon">
               <FontAwesomeIcon icon={faIcons} />
             </h1>
             <h3 className="header__topSearch-title">Classic</h3>
           </div>
-          <div className="header__topSearch-item">
+          <div className={`header__topSearch-item ${filteredValue.sharp ? "selected" : ""}`} onClick={() => handleSelected("sharp")}>
             <h1 className="header__icon">
               <FontAwesomeIcon icon={faIcons} />
             </h1>
             <h3 className="header__topSearch-title">Sharp</h3>
           </div>
-          <div className="header__topSearch-item">
+          <div className={`header__topSearch-item ${filteredValue.brands ? "selected" : ""}`} onClick={() => handleSelected("brands")}>
             <h1 className="header__icon">
               <FontAwesomeIcon icon={faBolt} />
             </h1>
             <h3 className="header__topSearch-title">Brands</h3>
           </div>
-          <div className="header__topSearch-item">
+          <div className={`header__topSearch-item ${filteredValue.free ? "selected" : ""}`} onClick={() => handleSelected("free")}>
             <h1 className="header__icon">
               <FontAwesomeIcon icon={faFlag} />
             </h1>
@@ -61,7 +63,7 @@ const Header = ({
           {isOpen && (
             <ul className="header__dropdown-list">
               {items.map((item, index) => (
-                <li key={index} onClick={() => handleItemClick(item)}>
+                <li key={index} onClick={() => {handleItemClick(item); handleSelected(item.toLowerCase()) }}>
                   {item}
                 </li>
               ))}

@@ -14,6 +14,33 @@ function App() {
 
   const [isOpen, setIsOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
+  const [filteredValue, setFilteredVaue] = useState({
+    classic: false,
+    sharp: false,
+    brands: false,
+    free: false,
+    accending: false,
+    decending: false,
+    solid: false,
+    regular: false,
+    light: false,
+    thin: false,
+    alert: false,
+    sponsered: false,
+    new: false,
+    accesibility: false,
+
+  })
+
+  // Handle Select
+  const handleSelected = value =>{
+    setFilteredVaue(prev =>({
+      ...prev,
+      [value] : prev[value] ? false : true
+    }))
+  }
+
+  console.log(filteredValue)
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
@@ -24,36 +51,49 @@ function App() {
     setIsOpen(false);
   };
 
-  const items = ['Option 1', 'Option 2', 'Option 3'];
+  const items = ['Accending', 'Decending'];
 
 
-  // // Icons Object To Array Convert
-  // const iconsArray = Object.entries(Icons);
-  // const [loading, setLoading] = useState(false);
-  // const [modalOpen, setModalOpen] = useState(false);
-  // const [modalIcon, setModalIcon] = useState([]);
-  // // Search Input Reference For Searches
-  // const ref = useRef();
+  // Icons Object To Array Convert
+  const iconsArray = Object.entries(Icons);
+  const [loading, setLoading] = useState(false);
 
-  // // Add New Property add in element
-  // const transformedArrayIcons = iconsArray.map((icon) => {
-  //   if (icon[0].length < 5) {
-  //     icon["status"] = "free";
-  //     return icon;
-  //   } else if (icon[0].length < 10) {
-  //     icon["status"] = "paid";
-  //     return icon;
-  //   } else {
-  //     icon["status"] = "others";
-  //     return icon;
-  //   }
-  // });
 
-  // // Initializing New Added Property Array into useState
-  // const [transformedIcons, setTransformedIcons] = useState(
-  //   transformedArrayIcons
-  // );
+  // Add New Property add in element
+  const transformedArrayIcons = iconsArray.map((icon) => {
+    if (icon[0].length < 5) {
+      icon["status"] = "classic";
+      icon["style"] = "solid";
+      icon["featured"] = "new"
+      return icon;
+    } else if (icon[0].length < 7) {
+      icon["status"] = "sharp";
+      icon["style"] = "regular";
+      icon["featured"] = "sponsered"
 
+      return icon;
+    } else if (icon[0].length < 10){
+      icon["status"] = "brand";
+      icon["style"] = "light";
+      icon["featured"] = "accesibility"
+
+      return icon;
+    }else {
+      icon["status"] = "free";
+      icon["style"] = "thin";
+      icon["featured"] = "alert"
+
+      return icon;
+    }
+  });
+
+  // Initializing New Added Property Array into useState
+  const [transformedIcons, setTransformedIcons] = useState(
+    transformedArrayIcons
+  );
+
+
+  
   // // Free, Paid & Others Icon Filtering Handler
   // const handleFreeIcon = () => {
   //   setLoading(true);
@@ -140,9 +180,9 @@ function App() {
     <>
 
       {/* Header Component */}
-      <Header toggleDropdown={toggleDropdown} selectedItem={selectedItem} isOpen={isOpen} handleItemClick={handleItemClick} items={items}></Header>
+      <Header handleSelected={handleSelected} filteredValue={filteredValue} toggleDropdown={toggleDropdown} filteredValue={filteredValue} selectedItem={selectedItem} isOpen={isOpen} handleItemClick={handleItemClick} items={items}></Header>
 
-      <MainIcon></MainIcon>
+      <MainIcon handleSelected={handleSelected} filteredValue={filteredValue} transformedIcons={transformedIcons}></MainIcon>
 
 
       {/* <h1 className="replica__title">Welcome To Font Awesome Replica</h1>

@@ -22,25 +22,25 @@ const Header = ({
     <>
       <div className="header">
         <div className="header__topSearch-container">
-          <div className={`header__topSearch-item ${filteredValue.classic ? "selected" : ""}`} onClick={() => handleSelected("classic")}>
+          <div className={`header__topSearch-item ${filteredValue.classic ? "selectedHeader" : ""}`} onClick={() => handleSelected("classic")}>
             <h1 className="header__icon">
               <FontAwesomeIcon icon={faIcons} />
             </h1>
             <h3 className="header__topSearch-title">Classic</h3>
           </div>
-          <div className={`header__topSearch-item ${filteredValue.sharp ? "selected" : ""}`} onClick={() => handleSelected("sharp")}>
+          <div className={`header__topSearch-item ${filteredValue.sharp ? "selectedHeader" : ""}`} onClick={() => handleSelected("sharp")}>
             <h1 className="header__icon">
               <FontAwesomeIcon icon={faIcons} />
             </h1>
             <h3 className="header__topSearch-title">Sharp</h3>
           </div>
-          <div className={`header__topSearch-item ${filteredValue.brands ? "selected" : ""}`} onClick={() => handleSelected("brands")}>
+          <div className={`header__topSearch-item ${filteredValue.brands ? "selectedHeader" : ""}`} onClick={() => handleSelected("brands")}>
             <h1 className="header__icon">
               <FontAwesomeIcon icon={faBolt} />
             </h1>
             <h3 className="header__topSearch-title">Brands</h3>
           </div>
-          <div className={`header__topSearch-item ${filteredValue.free ? "selected" : ""}`} onClick={() => handleSelected("free")}>
+          <div className={`header__topSearch-item ${filteredValue.free ? "selectedHeader" : ""}`} onClick={() => handleSelected("free")}>
             <h1 className="header__icon">
               <FontAwesomeIcon icon={faFlag} />
             </h1>

@@ -9,7 +9,6 @@
 }
 .header__topSearch-container{
     display: flex;
-    margin-right: 10px;
 }
 .header__topSearch-item{
     text-align: center;
@@ -17,6 +16,8 @@
     color: #183153;
     border-bottom: 5px solid transparent;
     cursor: pointer;
+    margin-right: 10px;
+
 
 }
 .header__topSearch-item:hover{
@@ -73,12 +74,12 @@
 
 }
 
-.selected{
+.selectedHeader{
     color: #146EBE;
     border-bottom: 5px solid #146EBE;
     background-color: #fff;
 }
 
-.selected .header__topSearch-title{
+.selectedHeader .header__topSearch-title{
     color: #146EBE;
 }

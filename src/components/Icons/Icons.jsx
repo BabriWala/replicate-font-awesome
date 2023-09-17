@@ -4,7 +4,6 @@ import './Icons.css'
 import { faCircle } from "@fortawesome/free-solid-svg-icons";
 
 const Icons = ({transformedIcons}) => {
-    // console.log(transformedIcons)
     return (
         <div className='icons'>
             <div className="icons__title-area">
@@ -21,7 +20,7 @@ const Icons = ({transformedIcons}) => {
                 {
                     transformedIcons.map((transformIcon, index) => <div  key={index} className="icons__item">
                     <h2 className='icons__item-icon'><FontAwesomeIcon icon={transformIcon[1]}></FontAwesomeIcon></h2>
-                    <h4 className='icons__item-title'>Icon Name</h4>
+                    <h4 className='icons__item-title'>{transformIcon[1].iconName}</h4>
                     </div>)
                 }
             </div>
